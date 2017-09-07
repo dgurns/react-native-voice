@@ -69,6 +69,8 @@ public class VoiceModule extends ReactContextBaseJavaModule implements Recogniti
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL, RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, getLocale(locale));
         intent.putExtra(RecognizerIntent.EXTRA_PARTIAL_RESULTS, true);
+        input.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_COMPLETE_SILENCE_LENGTH_MILLIS, '10000');
+        input.putExtra(RecognizerIntent.EXTRA_SPEECH_INPUT_POSSIBLY_COMPLETE_SILENCE_LENGTH_MILLIS, '10000');
 
         speech.startListening(intent);
         isRecognizing = true;
